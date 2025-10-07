@@ -2,13 +2,13 @@
 
 ## Video of all apps running
 ### BMI Calculator App Demo
-![BMI Calculator Demo](bmi_calc_demo.mp4)
+![BMI Calculator Demo](https://github.com/user-attachments/assets/ab8d885c-3b88-4d51-9f44-ea6336add0bd)
 
 ### Streamlit Map App Demo
-![Streamlit Map Demo](Location_app.mp4)
+![Streamlit Map Demo](https://github.com/user-attachments/assets/395e91a1-d066-43ac-ac43-83c638384ff5)
 
 ### GDP Stacked Bar Plot App Demo
-![GDP App Demo](gdp_app.mp4)
+![GDP App Demo](https://github.com/user-attachments/assets/32e9841b-fe1e-408c-b4dc-07c77b5978fc)
 
 1. Create a body mass index calculator app. It should take in height in feet or meters and weight in lbs or kilograms and return the associated body mass index. Post both the python code for your dash app and a gif screen capture of it running.
 2. Create a streamlit app where a user enters longitude and latitude and it creates a map with with a little icon over the spot that you selected. Again, post the python code for your app as well as a gif screen capture of it running.
