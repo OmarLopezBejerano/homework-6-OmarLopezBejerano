@@ -30,12 +30,33 @@ gdp["gdp_quantile_group"] = pd.qcut(gdp["IMF"], q=4, labels=["Low", "Medium", "H
 
 ## Streamlit app
 st.title("GDP by Country and Region")
-st.write("This app displays a stacked bar plot of country GDPs stacked within regions. You can select between the IMF, UN and World Bank reported numbers.")
-selection = st.selectbox("Select GDP Source", options=["IMF", "World Bank", "United Nations"])
+st.write("This app displays a stacked bar plot of country GDPs stacked within regions. You can select between the IMF, UN and World Bank reported numbers and filter by GDP quantile groups.")
+selection = st.radio("Select GDP Source", options=["IMF", "World Bank", "United Nations"])
 st.write(f"### You selected: {selection}")
 
 ## Selecting only the data to be plotted based on the user selection
-data_source = gdp[selection][:]
-print(data_source)
-
-st.bar_chart(data_source, x="year", y="yield", color="site", stack=False)
+## Creating the filter based on quantile groups
+groups_in_order = pd.Index(gdp["gdp_quantile_group"]).unique().tolist()
+selected_groups = st.multiselect(
+    "Select GDP quantile group(s):",
+    options=groups_in_order,
+    default=groups_in_order
+)
+## This applies the filter to the dataframe
+filtered = gdp[gdp["gdp_quantile_group"].isin(selected_groups)].copy()
+## This solves the issue of alphabetical ordering in the x-axis
+filtered["Country/Territory"] = pd.Categorical(
+    filtered["Country/Territory"],
+    categories=filtered["Country/Territory"],
+    ordered=True
+)
+## Plotting
+st.bar_chart(
+    filtered,
+    x="Country/Territory",
+    y=selection,
+    color="gdp_quantile_group",
+    stack=False,
+    height=600,
+    width=800
+)
