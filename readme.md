@@ -3,6 +3,9 @@
 ## Video of all apps running
 ### BMI Calculator App Demo
 ![BMI Calculator Demo](https://github.com/user-attachments/assets/ab8d885c-3b88-4d51-9f44-ea6336add0bd)
+<video src="https://github.com/user-attachments/assets/ab8d885c-3b88-4d51-9f44-ea6336add0bd" controls="controls" style="max-width: 730px;">
+</video>
+
 
 ### Streamlit Map App Demo
 ![Streamlit Map Demo](https://github.com/user-attachments/assets/395e91a1-d066-43ac-ac43-83c638384ff5)
